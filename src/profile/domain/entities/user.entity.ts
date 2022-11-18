@@ -7,20 +7,23 @@ import {
   Entity,
   JoinColumn,
   OneToOne,
+  PrimaryColumn,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import * as argon2 from 'argon2';
 import { Profile } from './profile.entity';
+import { UserId } from '../values/user-id.value';
+import { UserUsername } from '../values/user-username.value';
 
 @Entity({
   name: 'users',
 })
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryColumn('int', {name: 'id'})
+  id: UserId;
 
-  @Column({ unique: true, length: 25, type: 'varchar' })
+  @Column((type) => UserUsername, {prefix: false})
   username: string;
 
   @Column({ unique: true, length: 50, type: 'varchar' })

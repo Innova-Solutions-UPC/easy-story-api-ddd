@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { AppNotification } from 'src/common/application/notifications/app.notification';
 import { User } from 'src/profile/domain/entities/user.entity';
 import { Repository } from 'typeorm';
-import { RegisterUserRequest } from '../requests/register-user.request';
+import { RegisterUserRequest } from '../transform/requests/register-user.request';
 
 @Injectable()
 export class RegisterUserValidator {
